@@ -321,6 +321,13 @@
         </a>
       </div>
     </div>
+    <div>
+      <ul>
+        <li *ngFor="let entry of weightData">
+          {{ entry.date }} — {{ entry.weight }} kg
+        </li>
+      </ul>      
+    </div>
   </div>
 </main>
 
