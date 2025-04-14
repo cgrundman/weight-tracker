@@ -226,14 +226,25 @@
         </defs>
       </svg>
       <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="chart">
+      <h2>Weight - Last 90 Days</h2>
       <canvas baseChart
-        [data]="chartData"
-        [options]="chartOptions"
-        chartType="line">
+      [datasets]="fullChartData"
+      [labels]="fullChartLabels"
+      [options]="chartOptions"
+      chartType="line">
+      </canvas>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="chart">
+      <h2>Weight - Last 14 Days</h2>
+      <canvas baseChart
+      [datasets]="recentChartData"
+      [labels]="recentChartLabels"
+      [options]="chartOptions"
+      chartType="line">
       </canvas>
     </div>
     <div class="weights-list">
