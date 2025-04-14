@@ -25,6 +25,7 @@ export class AppComponent {
   public twoWeekChartData: any[] = [];
   public twoWeekChartLabels: string[] = [];
 
+  // Test
   public chartOptions: ChartOptions<'line'> = {
     responsive: true,
     plugins: {
