@@ -19,8 +19,11 @@ export class AppComponent {
   public fullChartData: any[] = [];
   public fullChartLabels: string[] = [];
 
-  public recentChartData: any[] = [];
-  public recentChartLabels: string[] = [];
+  public threeMonthChartData: any[] = [];
+  public threeMonthChartLabels: string[] = [];
+
+  public twoWeekChartData: any[] = [];
+  public twoWeekChartLabels: string[] = [];
 
   public chartOptions: ChartOptions<'line'> = {
     responsive: true,
@@ -65,8 +68,20 @@ export class AppComponent {
       return entryDate >= threeMonthsAgo && entryDate <= today;
     });
 
-    // Full 90-day chart
+    // Full  chart
     this.fullChartData = [
+      {
+        type: 'line',
+        data: this.weightData.map((d) => d.weight),
+        label: 'Weight (90 Days)',
+        borderColor: 'blue',
+        tension: 0.3,
+      },
+    ];
+    this.fullChartLabels = this.weightData.map((_, i) => `Day ${i + 1}`);
+
+    // Full 90-day chart
+    this.threeMonthChartData = [
       {
         type: 'line',
         data: threeMonthData.map((d) => d.weight),
@@ -75,10 +90,10 @@ export class AppComponent {
         tension: 0.3,
       },
     ];
-    this.fullChartLabels = threeMonthData.map((_, i) => `Day ${i + 1}`);
+    this.threeMonthChartLabels = threeMonthData.map((_, i) => `Day ${i + 1}`);
 
     // Last 14-day chart
-    this.recentChartData = [
+    this.twoWeekChartData = [
       {
         type: 'line',
         data: twoWeeksData.map((d) => d.weight),
@@ -87,6 +102,6 @@ export class AppComponent {
         tension: 0.3,
       },
     ];
-    this.recentChartLabels = twoWeeksData.map((_, i) => `Day ${i + 1}`);
+    this.twoWeekChartLabels = twoWeeksData.map((_, i) => `Day ${i + 1}`);
   }
 }
