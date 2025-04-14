@@ -4,11 +4,10 @@ import { ChartOptions, ChartType } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
 
 import { WEIGHT_DATA } from './data/weight-data';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgFor, NgChartsModule],
+  imports: [RouterOutlet, NgChartsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
