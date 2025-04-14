@@ -247,6 +247,7 @@
       chartType="line">
       </canvas>
     </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="chart">
       <h2>Weight - All Time</h2>
       <canvas baseChart
@@ -255,13 +256,6 @@
       [options]="chartOptions"
       chartType="line">
       </canvas>
-    </div>
-    <div class="weights-list">
-      <ul>
-        <li *ngFor="let entry of weightData">
-          {{ entry.date }} — {{ entry.weight }} kg
-        </li>
-      </ul>      
     </div>
   </div>
 </main>

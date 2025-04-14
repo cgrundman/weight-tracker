@@ -43,7 +43,7 @@ export const WEIGHT_DATA = [
     { date: '2025-02-11', weight: 89.9 },
     { date: '2025-02-12', weight: 90.2 },
     { date: '2025-02-13', weight: 89.7 },
-    { date: '2025-02-14', weight: 89.5 },
+    { date: '2025-02-14', weight: 86.0 },
     { date: '2025-02-15', weight: 89.3 },
     { date: '2025-02-16', weight: 89.1 },
     { date: '2025-02-17', weight: 89.0 },

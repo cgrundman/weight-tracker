@@ -38,6 +38,9 @@ export class AppComponent {
           display: true,
           text: 'Day',
         },
+        ticks: {
+          display: false,
+        }
       },
       y: {
         title: {
