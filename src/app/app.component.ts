@@ -1,9 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChartOptions, ChartType } from 'chart.js';
+import { 
+  Chart, 
+  ChartConfiguration, 
+  ChartOptions, 
+  ChartType, 
+  ChartDataset 
+} from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
 
+import annotationPlugin from 'chartjs-plugin-annotation';
 import { WEIGHT_DATA } from './data/weight-data';
+
+Chart.register(annotationPlugin)
 
 @Component({
   selector: 'app-root',
@@ -31,6 +40,24 @@ export class AppComponent {
       legend: {
         display: false,
       },
+      annotation: {
+        annotations: {
+          goalLine: {
+            type: 'line',
+          yMin: 85, // your goal weight
+          yMax: 85,
+          borderColor: 'red',
+          borderWidth: 2,
+          borderDash: [6, 6],
+          label: {
+            content: 'Goal: 85 kg',
+            position: 'start',
+            backgroundColor: 'rgba(255,0,0,0.2)',
+            color: 'red',
+          } 
+          }
+        }
+      },
     },
     scales: {
       x: {
@@ -53,6 +80,7 @@ export class AppComponent {
   };
 
   constructor() {
+
     // Create important dates
     const today = new Date();
     const twoWeeksAgo = new Date();
