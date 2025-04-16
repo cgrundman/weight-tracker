@@ -98,8 +98,6 @@ export const WEIGHT_DATA = [
     { date: '2025-04-07', weight: 84.9 },
     { date: '2025-04-08', weight: 84.8 },
     { date: '2025-04-09', weight: 85.2 },
-    { date: '2025-04-10', weight: 85.5 },
-    { date: '2025-04-11', weight: 84.8 },
     { date: '2025-04-12', weight: 85.1 },
     { date: '2025-04-13', weight: 84.5 },
   ];
