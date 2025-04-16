@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { 
-  Chart, 
-  ChartConfiguration, 
-  ChartOptions, 
-  ChartType, 
-  ChartDataset 
+  Chart,
+  ChartConfiguration,
+  ChartOptions,
+  ChartType,
+  ChartDataset
 } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
 
@@ -23,6 +23,8 @@ Chart.register(annotationPlugin)
 export class AppComponent {
   title = 'Weight Tracker';
   weightData = WEIGHT_DATA;
+
+  goal_weight = 85.0;
 
   public fullChartData: any[] = [];
   public fullChartLabels: string[] = [];
@@ -44,17 +46,30 @@ export class AppComponent {
         annotations: {
           goalLine: {
             type: 'line',
-          yMin: 85, // your goal weight
-          yMax: 85,
-          borderColor: 'red',
-          borderWidth: 2,
-          borderDash: [6, 6],
-          label: {
-            content: 'Goal: 85 kg',
-            position: 'start',
-            backgroundColor: 'rgba(255,0,0,0.2)',
-            color: 'red',
-          } 
+            yMin: this.goal_weight, // your goal weight
+            yMax: this.goal_weight,
+            borderColor: '#fa2c05',
+            borderWidth: 2,
+            borderDash: [6, 6],
+            label: {
+              position: 'start',
+              backgroundColor: '#fa2c05',
+              color: 'red',
+            } 
+          },
+          targetZone: {
+            type: 'box',
+            yMin: this.goal_weight - 0.01*this.goal_weight,     // Lower bound
+            yMax: this.goal_weight + 0.01*this.goal_weight,     // Upper bound
+            backgroundColor: 'rgba(255, 77, 6, 0.3)', // Light green fill
+            borderColor: 'rgba(255, 77, 6, 0.5)',
+            borderWidth: 1,
+            label: {
+              content: 'Target Zone',
+              position: 'center',
+              color: 'green',
+              // backgroundColor: 'rgba(0, 255, 0, 0.2)'
+            }
           }
         }
       },
@@ -62,7 +77,7 @@ export class AppComponent {
     scales: {
       x: {
         title: {
-          display: true,
+          display: false,
           text: 'Day',
         },
         ticks: {
@@ -105,7 +120,8 @@ export class AppComponent {
         type: 'line',
         data: this.weightData.map((d) => d.weight),
         label: 'Weight (90 Days)',
-        borderColor: 'blue',
+        borderColor: '#0546ff',
+        pointRadius: 0.0,
         tension: 0.3,
       },
     ];
@@ -117,7 +133,8 @@ export class AppComponent {
         type: 'line',
         data: threeMonthData.map((d) => d.weight),
         label: 'Weight (90 Days)',
-        borderColor: 'blue',
+        borderColor: '#0546ff',
+        pointRadius: 0.0,
         tension: 0.3,
       },
     ];
@@ -129,7 +146,8 @@ export class AppComponent {
         type: 'line',
         data: twoWeeksData.map((d) => d.weight),
         label: 'Weight (Last 2 Weeks)',
-        borderColor: 'green',
+        borderColor: '#0546ff',
+        pointBackgroundColor: '#8514f5',
         tension: 0.3,
       },
     ];
